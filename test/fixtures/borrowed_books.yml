@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: one
+  user: one
+  returning_at: 2021-08-07 00:09:29
+
+two:
+  book: two
+  user: two
+  returning_at: 2021-08-07 00:09:29
