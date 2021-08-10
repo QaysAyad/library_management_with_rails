@@ -14,9 +14,7 @@
 
   <tbody>
     <% @borrowed_books.each do |borrowed_book| %>
-      <tr>
-        <td><%= borrowed_book.book %></td>
-        <td><%= borrowed_book.user %></td>
+      <tr class="<%= "late" if borrowed_book.late? %>" >
         <td><%= borrowed_book.returning_at %></td>
         <td><%= link_to 'Show', borrowed_book %></td>
         <td><%= link_to 'Edit', edit_borrowed_book_path(borrowed_book) %></td>
