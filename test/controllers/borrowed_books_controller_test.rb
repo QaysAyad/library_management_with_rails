@@ -28,16 +28,6 @@ class BorrowedBooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_borrowed_book_url(@borrowed_book)
-    assert_response :success
-  end
-
-  test "should update borrowed_book" do
-    patch borrowed_book_url(@borrowed_book), params: { borrowed_book: { book_id: @borrowed_book.book_id, returning_at: @borrowed_book.returning_at, user_id: @borrowed_book.user_id } }
-    assert_redirected_to borrowed_book_url(@borrowed_book)
-  end
-
   test "should destroy borrowed_book" do
     assert_difference('BorrowedBook.count', -1) do
       delete borrowed_book_url(@borrowed_book)

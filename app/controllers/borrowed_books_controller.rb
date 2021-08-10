@@ -1,5 +1,5 @@
 class BorrowedBooksController < ApplicationController
-  before_action :set_borrowed_book, only: %i[ show edit update destroy ]
+  before_action :set_borrowed_book, only: %i[ show destroy ]
 
   # GET /borrowed_books or /borrowed_books.json
   def index
@@ -15,10 +15,6 @@ class BorrowedBooksController < ApplicationController
     @borrowed_book = BorrowedBook.new
   end
 
-  # GET /borrowed_books/1/edit
-  def edit
-  end
-
   # POST /borrowed_books or /borrowed_books.json
   def create
     @borrowed_book = BorrowedBook.new(borrowed_book_params)
@@ -29,19 +25,6 @@ class BorrowedBooksController < ApplicationController
         format.json { render :show, status: :created, location: @borrowed_book }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @borrowed_book.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /borrowed_books/1 or /borrowed_books/1.json
-  def update
-    respond_to do |format|
-      if @borrowed_book.update(borrowed_book_params)
-        format.html { redirect_to @borrowed_book, notice: "Borrowed book was successfully updated." }
-        format.json { render :show, status: :ok, location: @borrowed_book }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @borrowed_book.errors, status: :unprocessable_entity }
       end
     end
