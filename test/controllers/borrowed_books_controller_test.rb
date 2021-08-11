@@ -37,4 +37,12 @@ class BorrowedBooksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to borrowed_books_url
   end
+
+  test "should not borrow same book twice" do
+    book = create(:book)
+    assert_difference('BorrowedBook.count', 1) do
+      post borrowed_books_url, params: { borrowed_book: { book_id: book.id, returning_at: @borrowed_book.returning_at, user_id: @borrowed_book.user_id } }
+      post borrowed_books_url, params: { borrowed_book: { book_id: book.id, returning_at: @borrowed_book.returning_at, user_id: @borrowed_book.user_id } }
+    end
+  end
 end
