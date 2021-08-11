@@ -2,17 +2,19 @@
 
 <p>
   <strong>Book:</strong>
-  <%= @borrowed_book.book %>
+  <%= @borrowed_book.book.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @borrowed_book.user %>
+  <%= @borrowed_book.user.full_name %>
 </p>
 
 <p>
   <strong>Returning at:</strong>
   <%= @borrowed_book.returning_at %>
 </p>
+
+<%= button_to 'Return Book', @borrowed_book, method: :delete, data: { confirm: 'Are you sure to return this book?' } %>
 
 <%= link_to 'Back', borrowed_books_path %>
