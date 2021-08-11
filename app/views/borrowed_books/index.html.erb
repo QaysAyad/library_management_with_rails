@@ -19,7 +19,6 @@
       <tr class="<%= "late" if borrowed_book.late? %>" >
         <td><%= borrowed_book.returning_at %></td>
         <td><%= link_to 'Show', borrowed_book %></td>
-        <td><%= link_to 'Edit', edit_borrowed_book_path(borrowed_book) %></td>
         <td><%= link_to 'Return', borrowed_book, method: :delete, data: { confirm: 'Are you sure to return this book?' } %></td>
       </tr>
     <% end %>
