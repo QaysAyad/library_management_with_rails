@@ -1,8 +1,9 @@
 require 'test_helper'
+require 'factory_bot_rails'
 
 class BorrowedBooksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @borrowed_book = borrowed_books(:one)
+    @borrowed_book = create(:borrowed_book)
   end
 
   test "should get index" do
@@ -16,8 +17,9 @@ class BorrowedBooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create borrowed_book" do
+    book = create(:book)
     assert_difference('BorrowedBook.count') do
-      post borrowed_books_url, params: { borrowed_book: { book_id: @borrowed_book.book_id, returning_at: @borrowed_book.returning_at, user_id: @borrowed_book.user_id } }
+      post borrowed_books_url, params: { borrowed_book: { book_id: book.id, returning_at: @borrowed_book.returning_at, user_id: @borrowed_book.user_id } }
     end
 
     assert_redirected_to borrowed_book_url(BorrowedBook.last)

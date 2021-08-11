@@ -1,8 +1,9 @@
 require 'test_helper'
+require 'factory_bot_rails'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = create(:user)
   end
 
   test "should get index" do

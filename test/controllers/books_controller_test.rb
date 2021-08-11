@@ -1,8 +1,9 @@
 require 'test_helper'
+require 'factory_bot_rails'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @book = books(:one)
+    @book = create(:book)
   end
 
   test "should get index" do
