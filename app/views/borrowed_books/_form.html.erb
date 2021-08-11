@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :book_id %>
-    <%= form.text_field :book_id %>
+    <%= form.collection_select :book_id, @available_books, :id, :name, include_blank: true %>
   </div>
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.collection_select :user_id, @users, :id, :full_name, include_blank: true %>
   </div>
 
   <div class="field">

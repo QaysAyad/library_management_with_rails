@@ -1,5 +1,6 @@
 class BorrowedBooksController < ApplicationController
   before_action :set_borrowed_book, only: %i[ show destroy ]
+  before_action :set_select_data, only: %i[ new create ]
 
   # GET /borrowed_books or /borrowed_books.json
   def index
@@ -43,6 +44,11 @@ class BorrowedBooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_borrowed_book
       @borrowed_book = BorrowedBook.find(params[:id])
+    end
+
+    def set_select_data
+      @available_books = Book.available
+      @users = User.all
     end
 
     # Only allow a list of trusted parameters through.
